@@ -1,0 +1,101 @@
+@import "normalize";
+@import "bourbon";
+@import "neat";
+
+/* Colors */
+
+$primary: hsl(28, 85%, 58%);
+$complement: complement($primary);
+$primary-light: lighten($primary, 35%);
+$primary-neutral: mix($primary, $complement, 60%);
+$primary-dark: darken($primary, 50%);
+$complement-light: lighten($complement, 35%);
+$complement-neutral: mix($primary, $complement, 40%);
+$complement-dark: darken($complement, 50%);
+
+/* Styling */
+
+$neat-grid: (
+  columns: 12,
+  gutter: 20px,
+);
+
+.row {
+    @include row();
+}
+
+div.panel {
+  min-height: 100vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@mixin box {
+    height: 20px;
+    width: 20px;
+}
+
+.palette {
+  position: fixed;
+  bottom: 80px;
+  right: 0px;
+}
+
+div[class="colors"] {
+    float: left;
+}
+
+div[class="colors"]:first-of-type {
+    div {
+        @include box;
+    }
+    div:nth-of-type(1) {
+        background-color: $primary;
+    }
+    div:nth-of-type(2) {
+        background-color: $primary-light;
+    }
+    div:nth-of-type(3) {
+        background-color: $primary-neutral;
+    }
+    div:nth-of-type(4) {
+        background-color: $primary-dark;
+    }
+}
+
+div:last-of-type {
+    div {
+        @include box;
+    }
+    div:nth-of-type(1) {
+        background-color: $complement;
+    }
+    div:nth-of-type(2) {
+        background-color: $complement-light;
+    }
+    div:nth-of-type(3) {
+        background-color: $complement-neutral;
+    }
+    div:nth-of-type(4) {
+        background-color: $complement-dark;
+    }
+}
